@@ -1,0 +1,6 @@
+framework module Pods_AmplifyExample {
+  umbrella header "Pods-AmplifyExample-umbrella.h"
+
+  export *
+  module * { export * }
+}

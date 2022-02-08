@@ -1,24 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AmplifyExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCS-1f-Tqx">
+                                <rect key="frame" x="161.5" y="523" width="91" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="72U-3I-Jh7"/>
+                                    <constraint firstAttribute="height" constant="32" id="W5P-Pv-aHY"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Get status"/>
+                                <connections>
+                                    <action selector="checkAuthenticationStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hnu-zh-ntW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwa-Ru-1SC">
+                                <rect key="frame" x="24" y="432" width="366" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="g7S-ic-no5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Bfn-7x-TJ0">
+                                <rect key="frame" x="187" y="360" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="90h-qn-djC"/>
+                                    <constraint firstAttribute="height" constant="40" id="ofz-AN-hFr"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cwa-Ru-1SC" firstAttribute="top" secondItem="Bfn-7x-TJ0" secondAttribute="bottom" constant="32" id="DM0-Kj-QNy"/>
+                            <constraint firstItem="cwa-Ru-1SC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="24" id="NWS-y0-YXe"/>
+                            <constraint firstItem="cwa-Ru-1SC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ptn-U4-oeb"/>
+                            <constraint firstItem="cwa-Ru-1SC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SLf-4e-h50"/>
+                            <constraint firstItem="Bfn-7x-TJ0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W8T-bv-hT5"/>
+                            <constraint firstAttribute="trailing" secondItem="cwa-Ru-1SC" secondAttribute="trailing" constant="24" id="WdN-93-vxS"/>
+                            <constraint firstItem="mCS-1f-Tqx" firstAttribute="top" secondItem="cwa-Ru-1SC" secondAttribute="bottom" constant="59" id="fzE-Xl-FKT"/>
+                            <constraint firstItem="mCS-1f-Tqx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="i8l-L7-Kcg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="Bfn-7x-TJ0" id="Bny-Na-3Wd"/>
+                        <outlet property="authenticationStatusLabel" destination="cwa-Ru-1SC" id="eps-Gw-1RG"/>
+                        <outlet property="getStatusButton" destination="mCS-1f-Tqx" id="ESR-V2-Obd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-93" y="-3"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
